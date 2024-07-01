@@ -1,11 +1,24 @@
+'use client'
+
 import { Button } from '@/components/ui/button'
-import { ModeToggle } from '@/components/ui/mode-toggle'
+import { useRouter } from 'next/navigation'
+import Landing from './landing'
 
 export default function Home() {
+  const router = useRouter()
+
   return (
     <main>
-      <Button>hi</Button>
-      <ModeToggle />
+      <div className="flex flex-col items-center justify-start ">
+        <Landing />
+      </div>
+      <Button
+        onClick={() => {
+          router.push('/efficoder')
+        }}
+      >
+        hi
+      </Button>
     </main>
   )
 }

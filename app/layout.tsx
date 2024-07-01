@@ -3,6 +3,9 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from '@/components/theme-provider'
 import Header from './header'
+import { H1 } from '@/components/ui/H1'
+import { ReactTyped } from 'react-typed'
+import Landing from './landing'
 
 const inter = Inter({ subsets: ['latin'] })
 
