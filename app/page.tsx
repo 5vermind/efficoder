@@ -10,7 +10,7 @@ import { GithubIcon } from "@/components/icons";
 export default function Home() {
   return (
     <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-      <div className="inline-block max-w-xl text-center justify-center">
+      <div className="justify-center inline-block max-w-xl text-center">
         <h1 className={title()}>Make&nbsp;</h1>
         <h1 className={title({ color: "violet" })}>beautiful&nbsp;</h1>
         <br />
@@ -30,9 +30,9 @@ export default function Home() {
             radius: "full",
             variant: "shadow",
           })}
-          href={siteConfig.links.docs}
+          href={siteConfig.links.start}
         >
-          Documentation
+          Start
         </Link>
         <Link
           isExternal
