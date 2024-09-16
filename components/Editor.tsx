@@ -1,17 +1,38 @@
 'use client'
 
+import { MonacoDiffEditor } from '@monaco-editor/react'
 import dynamic from 'next/dynamic'
+import { Dispatch, SetStateAction, useRef } from 'react'
 
-const MonacoEditor = dynamic(() => import('@monaco-editor/react'), { ssr: false })
+const MonacoEditorDynamic = dynamic(() => import('@monaco-editor/react'), {
+  ssr: false,
+})
 
-const EditorComponent = () => {
+interface EditorProps {
+  value: string
+  setValue: Dispatch<SetStateAction<string>>
+  readonly?: boolean
+  language?: string
+}
+
+const Editor = ({ value, setValue, readonly, language }: EditorProps) => {
+  const editorRef = useRef<MonacoDiffEditor | null>(null)
+
   return (
-    <MonacoEditor
-      defaultLanguage="javascript"
-      defaultValue="// some comment"
-      height="90vh"
+    <MonacoEditorDynamic
+      // defaultValue="// some comment"
+      // onMount={onMountEditor}
+      height="75vh"
+      language={language ?? 'javascript'}
+      options={{
+        readOnly: readonly,
+      }}
+      value={value}
+      onChange={(value) => {
+        setValue(value ? value : '')
+      }}
     />
-  );
-};
+  )
+}
 
-export default EditorComponent
+export default Editor

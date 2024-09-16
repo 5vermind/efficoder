@@ -6,25 +6,13 @@ import {
   NavbarBrand,
   NavbarItem,
   NavbarMenuItem,
-} from "@nextui-org/navbar";
-import { Button } from "@nextui-org/button";
-import { Kbd } from "@nextui-org/kbd";
-import { Link } from "@nextui-org/link";
-import { Input } from "@nextui-org/input";
-import { link as linkStyles } from "@nextui-org/theme";
-import NextLink from "next/link";
-import clsx from "clsx";
+} from '@nextui-org/navbar'
+import { Link } from '@nextui-org/link'
+import NextLink from 'next/link'
 
-import { siteConfig } from "@/config/site";
-import { ThemeSwitch } from "@/components/theme-switch";
-import {
-  TwitterIcon,
-  GithubIcon,
-  DiscordIcon,
-  HeartFilledIcon,
-  SearchIcon,
-  Logo,
-} from "@/components/icons";
+import { siteConfig } from '@/config/site'
+import { ThemeSwitch } from '@/components/theme-switch'
+import { GithubIcon } from '@/components/icons'
 
 export const Navbar = () => {
   // const searchInput = (
@@ -57,7 +45,7 @@ export const Navbar = () => {
           </NextLink>
         </NavbarBrand>
         <ul className="justify-start hidden gap-4 ml-2 lg:flex">
-          {siteConfig.navItems.map((item) => (
+          {/* {siteConfig.navItems.map((item) => (
             <NavbarItem key={item.href}>
               <NextLink
                 className={clsx(
@@ -70,7 +58,7 @@ export const Navbar = () => {
                 {item.label}
               </NextLink>
             </NavbarItem>
-          ))}
+          ))} */}
         </ul>
       </NavbarContent>
 
@@ -121,10 +109,10 @@ export const Navbar = () => {
               <Link
                 color={
                   index === 2
-                    ? "primary"
+                    ? 'primary'
                     : index === siteConfig.navMenuItems.length - 1
-                      ? "danger"
-                      : "foreground"
+                    ? 'danger'
+                    : 'foreground'
                 }
                 href="#"
                 size="lg"
@@ -136,5 +124,5 @@ export const Navbar = () => {
         </div>
       </NavbarMenu>
     </NextUINavbar>
-  );
-};
+  )
+}

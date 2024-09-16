@@ -1,7 +1,9 @@
-import EditorComponent from "@/components/Editor";
+import Code from './Code'
 
-export default function Code(){
-  return <>
-    <EditorComponent />
-  </>
+export default function CodePage() {
+  return (
+    <>
+      <Code />
+    </>
+  )
 }
