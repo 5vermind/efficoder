@@ -11,8 +11,8 @@ module.exports = {
           languages: ['javascript', 'typescript', 'css', 'html', 'json'],
         }),
       )
-      return config
     }
+    return config
   },
   env: {
     OPENAI_API_KEY: process.env.OPENAI_API_KEY,
