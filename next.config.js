@@ -4,7 +4,7 @@ const nextConfig = {}
 const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin')
 
 module.exports = {
-  webpack: (config) => {
+  webpack: (config, options) => {
     if (!options.isServer) {
       config.plugins.push(
         new MonacoWebpackPlugin({
