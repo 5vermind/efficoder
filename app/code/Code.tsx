@@ -4,6 +4,8 @@ import { Button } from '@nextui-org/button'
 import { useEffect, useState } from 'react'
 import { experimental_useObject } from 'ai/react'
 import zod from 'zod'
+import { Modal } from '@nextui-org/modal'
+import { CircularProgress } from '@nextui-org/progress'
 
 import LanguageDropdown from './LanguageDropdown'
 import ModeDropdown from './ModeDropdown'
@@ -34,9 +36,11 @@ export default function Code() {
     setModifiedCode(originalCode)
   }, [originalCode])
 
+  console.log(isLoading)
+
   return (
     <div className="flex flex-row items-center justify-center gap-4">
-      <div className="w-full flex flex-col gap-4">
+      <div className="flex flex-col w-full gap-4">
         <div className="flex gap-2">
           <LanguageDropdown language={language} setLanguage={setLanguage} />
           <ModeDropdown mode={mode} setMode={setMode} />
@@ -47,7 +51,7 @@ export default function Code() {
           value={originalCode}
         />
       </div>
-      <div className="w-full flex flex-col gap-4">
+      <div className="flex flex-col w-full gap-4">
         <Button
           className="w-6"
           color="secondary"
@@ -69,6 +73,9 @@ export default function Code() {
           value={modifiedCode}
         />
       </div>
+      <Modal isOpen={isLoading}>
+        <CircularProgress aria-label="Loading..." />
+      </Modal>
     </div>
   )
 }
