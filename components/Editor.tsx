@@ -1,8 +1,7 @@
 'use client'
 
-import { MonacoDiffEditor } from '@monaco-editor/react'
 import dynamic from 'next/dynamic'
-import { Dispatch, SetStateAction, useRef } from 'react'
+import { Dispatch, SetStateAction } from 'react'
 
 const MonacoEditorDynamic = dynamic(() => import('@monaco-editor/react'), {
   ssr: false,
@@ -16,8 +15,6 @@ interface EditorProps {
 }
 
 const Editor = ({ value, setValue, readonly, language }: EditorProps) => {
-  const editorRef = useRef<MonacoDiffEditor | null>(null)
-
   return (
     <MonacoEditorDynamic
       // defaultValue="// some comment"

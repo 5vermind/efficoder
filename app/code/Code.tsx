@@ -3,7 +3,6 @@
 import { Button } from '@nextui-org/button'
 import { useEffect, useState } from 'react'
 import { experimental_useObject } from 'ai/react'
-import zod from 'zod'
 import { Modal } from '@nextui-org/modal'
 import { CircularProgress } from '@nextui-org/progress'
 
@@ -11,6 +10,7 @@ import LanguageDropdown from './LanguageDropdown'
 import ModeDropdown from './ModeDropdown'
 
 import Editor from '@/components/Editor'
+import { aiSchema } from '@/lib/schema'
 
 export default function Code() {
   const [originalCode, setOriginalCode] = useState('//이곳에 코드를 입력하세요')
@@ -18,13 +18,7 @@ export default function Code() {
   const [language, setLanguage] = useState(new Set(['javascript']))
   const { submit, isLoading } = experimental_useObject({
     api: '/api/ai',
-    schema: zod.object({
-      code: zod.string(),
-      evaluation: zod.object({
-        old: zod.string(),
-        new: zod.string(),
-      }),
-    }),
+    schema: aiSchema,
     onFinish: (object) => {
       setModifiedCode(object.object?.code ?? '')
     },
@@ -35,8 +29,6 @@ export default function Code() {
     if (originalCode === '//이곳에 코드를 입력하세요') return
     setModifiedCode(originalCode)
   }, [originalCode])
-
-  console.log(isLoading)
 
   return (
     <div className="flex flex-row items-center justify-center gap-4">
