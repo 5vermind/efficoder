@@ -1,9 +1,4 @@
-export const MODES = [
-  'performance',
-  'security',
-  'readability',
-  'maintainability',
-]
+export const MODES = ['performance', 'security', 'maintainability']
 
 export const MODES_DESCRIPTION: {
   [mode: (typeof MODES)[number]]: {

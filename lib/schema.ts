@@ -8,8 +8,8 @@ export const aiSchema = zod.object({
       explanation: zod.string(),
     }),
   ),
-  evaluation: zod.object({
-    old: zod.string(),
-    new: zod.string(),
-  }),
 })
+
+const changesSchema = aiSchema.shape.changes
+
+export type changesSchema = zod.infer<typeof changesSchema>
