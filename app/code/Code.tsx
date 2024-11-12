@@ -41,20 +41,24 @@ export default function Code() {
         />
       </div>
       <div className="flex flex-col w-full gap-4">
-        <Button
-          className="w-6"
-          color="secondary"
-          variant="shadow"
-          onClick={() => {
-            if (originalCode === '') return
-            submit({
-              code: originalCode,
-              mode: Array.from(mode)[0],
-            })
-          }}
-        >
-          Efficode!
-        </Button>
+        <div className="flex">
+          <Button
+            // className=""
+            color="secondary"
+            isDisabled={originalCode === ''}
+            isLoading={isLoading}
+            variant="shadow"
+            onClick={() => {
+              if (originalCode === '') return
+              submit({
+                code: originalCode,
+                mode: Array.from(mode)[0],
+              })
+            }}
+          >
+            Efficode!
+          </Button>
+        </div>
         <Editor
           readonly
           changes={changes}
